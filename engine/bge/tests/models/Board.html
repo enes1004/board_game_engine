@@ -1,0 +1,93 @@
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script type="text/javascript" src="../../models/BoardCompiled.js"></script>
+<script type="text/javascript" src="./tiles.json"></script>
+<script type="text/javascript" src="../../models/Tiles.js"></script>
+<script type="text/javascript">
+
+</script>
+<style>
+  :root{
+    --width_divided:7%;
+  }
+  .tile_grid {
+      display: flex;
+  }
+
+
+  .tile {
+      width:var(--width_divided);
+      margin: 0 auto;
+      vertical-align: middle;
+      padding: 3em;
+      word-break: break-word;
+      text-align: center;
+      border: solid thin;
+      height:9em;
+  }
+
+  .tile_grid.left {
+      flex-direction: column-reverse;
+  }
+
+  .tile_grid.bottom {
+      width: 100%;
+      flex-direction: row-reverse;
+  }
+
+  .tile_grid.right {
+      flex-direction: column;
+  }
+  .tile_grid.right,.tile_grid.left {
+    width:var(--width_divided);
+  }
+  .tile_grid.not_bottom {
+    display: block;
+  }
+
+  .tile_grid.top .tile,.tile_grid.bottom .tile {
+    width:var(--width_divided);
+  }
+
+  .tile_grid.right .tile,.tile_grid.left .tile {
+    padding: 3em 0;
+    width: 100%;
+    margin:0;
+  }
+
+
+  .tile_grid.middle {width: 100%; margin: auto;}
+  .tile_grid.middle_center{}
+  .top {
+      top: 0;
+  }
+  .right {
+      right: 0;
+      position: absolute;
+  }
+
+  .left {
+      left: 0;
+      position: absolute;
+  }
+
+  .bottom {
+      bottom: 0;
+      position: absolute;
+  }
+</style>
+</head><body><div id="container">
+</div>
+<script type="text/javascript">
+
+  ReactDOM.render(
+    React.createElement(BoardReact,{
+      config:{top_bottom_tile:12,right_left_tile:11,tile_height:150},
+      tileSet:new TileSet(tiles.tile_sets[0])
+  }),
+    document.getElementById("container")
+  );
+</script>
+
+</body>

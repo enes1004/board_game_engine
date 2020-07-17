@@ -1,0 +1,48 @@
+{
+  "info":{
+    "info":"this part is to comment on each variable. This part is not used in game ui, so can be used to explain settings this file",
+    "tile_sets":"for tiles of board. multiple tile set is possible if movement between them is explicitly defined",
+    "tile_load_from":"option for loading tiles from external data. i.e. customable maps",
+    "name":"name to call object in the game. Used if language is set to default. Else, corresponding value in the language package (selected by lang_tag) is used",
+    "tiles":"tile infos if load_from is false or omitted",
+    "is_first":"denoting first tile of set. Can be omitted if to added explicitly",
+    "lang_tag":"unique tag to use in language packages"
+  },
+  "tile_sets":[
+    {
+      "name":"city tiles",
+      "lang_tag":"city-tiles",
+      "load_from":false,
+      "tiles":[
+        {
+          "lang_tag":"tile-start",
+          "name":"Start",
+          "is_first":true,
+          "next":["Toronto"],
+          "prev":["Paris"]
+        },
+        {
+          "lang_tag":"tile-toronto",
+          "name":"Toronto",
+          "next":["Washington"],
+          "prev":["Start"]
+        },
+        {
+          "lang_tag":"tile-washington",
+          "name":"Washington",
+          "next":["Paris"],
+          "prev":["Toronto"]
+        },
+        {
+          "lang_tag":"card-paris",
+          "name":"Paris",
+          "next":["Start"],
+          "prev":["Washington"]
+        }
+
+
+      ]
+    }
+  ]
+
+}
